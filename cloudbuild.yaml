@@ -1,0 +1,22 @@
+# cloudbuild.yaml
+
+steps:
+  # Step 1: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'northamerica-northeast1-docker.pkg.dev/sm-dav-svc-prj-cd67/gcp-strapi/gcp-strapi-backend', '.']
+
+  # Step 2: Push the Docker image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'northamerica-northeast1-docker.pkg.dev/sm-dav-svc-prj-cd67/gcp-strapi/gcp-strapi-backend']
+
+  # Step 3: Deploy the image to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+        'run', 'deploy', 'gcp-strapi-backend',
+        '--image', 'northamerica-northeast1-docker.pkg.dev/sm-dav-svc-prj-cd67/gcp-strapi/gcp-strapi-backend',
+        '--platform', 'managed',
+        '--region', 'northamerica-northeast1', '--allow-unauthenticated'
+    ]
+
+images:
+  - 'northamerica-northeast1-docker.pkg.dev/sm-dav-svc-prj-cd67/gcp-strapi/gcp-strapi-backend'
