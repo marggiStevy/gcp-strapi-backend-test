@@ -45,3 +45,4 @@ steps:
 
 images:
   - 'northamerica-northeast1-docker.pkg.dev/sm-dav-svc-prj-cd67/gcp-strapi/gcp-strapi-backend'
+
