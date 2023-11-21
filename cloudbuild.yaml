@@ -37,7 +37,6 @@ steps:
       - "1"
       - "--memory"
       - "256Mi"
-      - "--set-secrets"
       - '--allow-unauthenticated'
       - '--network'
       - 'projects/sm-dav-xpn-prj-d829/global/networks/sm-net-vpc'
