@@ -23,7 +23,7 @@ steps:
       - "--ingress"
       - "all"
       - "--port"
-      - "8080"
+      - "1337"
       - "--service-account"
       - "sm-strapi-db-connection-866@sm-dav-svc-prj-cd67.iam.gserviceaccount.com"
       - "--allow-unauthenticated"
